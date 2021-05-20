@@ -77,6 +77,11 @@ if !exists('g:gruvbox_contrast_light')
   let g:gruvbox_contrast_light='medium'
 endif
 
+if !exists('g:gruvbox_dark_fg_colors')
+  let g:gruvbox_dark_fg_colors='bright'
+endif
+
+
 let s:is_dark=(&background == 'dark')
 
 " }}}
@@ -86,26 +91,28 @@ let s:is_dark=(&background == 'dark')
 let s:gb = {}
 
 " fill it with absolute colors
-let s:gb.dark0_hard  = ['#1d2021', 234]     " 29-32-33
-let s:gb.dark0       = ['#282828', 235]     " 40-40-40
-let s:gb.dark0_soft  = ['#32302f', 236]     " 50-48-47
-let s:gb.dark1       = ['#3c3836', 237]     " 60-56-54
-let s:gb.dark2       = ['#504945', 239]     " 80-73-69
-let s:gb.dark3       = ['#665c54', 241]     " 102-92-84
-let s:gb.dark4       = ['#7c6f64', 243]     " 124-111-100
-let s:gb.dark4_256   = ['#7c6f64', 243]     " 124-111-100
+let s:gb.dark0_hard       = ['#1d2021', 234]     " 29-32-33
+let s:gb.dark0            = ['#282828', 235]     " 40-40-40
+let s:gb.dark0_soft       = ['#32302f', 236]     " 50-48-47
+let s:gb.dark1            = ['#3c3836', 237]     " 60-56-54
+let s:gb.dark2            = ['#504945', 239]     " 80-73-69
+let s:gb.dark3            = ['#665c54', 241]     " 102-92-84
+let s:gb.dark4            = ['#7c6f64', 243]     " 124-111-100
+let s:gb.dark4_256        = ['#7c6f64', 243]     " 124-111-100
 
-let s:gb.gray_245    = ['#928374', 245]     " 146-131-116
-let s:gb.gray_244    = ['#928374', 244]     " 146-131-116
+let s:gb.gray_245         = ['#928374', 245]     " 146-131-116
+let s:gb.gray_244         = ['#928374', 244]     " 146-131-116
+let s:gb.gray_243         = ['#776b5e', 243]
 
-let s:gb.light0_hard = ['#f9f5d7', 230]     " 249-245-215
-let s:gb.light0      = ['#fbf1c7', 229]     " 253-244-193
-let s:gb.light0_soft = ['#f2e5bc', 228]     " 242-229-188
-let s:gb.light1      = ['#ebdbb2', 223]     " 235-219-178
-let s:gb.light2      = ['#d5c4a1', 250]     " 213-196-161
-let s:gb.light3      = ['#bdae93', 248]     " 189-174-147
-let s:gb.light4      = ['#a89984', 246]     " 168-153-132
-let s:gb.light4_256  = ['#a89984', 246]     " 168-153-132
+let s:gb.light0_hard      = ['#f9f5d7', 230]     " 249-245-215
+let s:gb.light0           = ['#fbf1c7', 229]     " 253-244-193
+let s:gb.light0_soft      = ['#f2e5bc', 228]     " 242-229-188
+let s:gb.light1           = ['#ebdbb2', 223]     " 235-219-178
+let s:gb.light1_neutral   = ['#c9c0a7', 245]
+let s:gb.light2           = ['#d5c4a1', 250]     " 213-196-161
+let s:gb.light3           = ['#bdae93', 248]     " 189-174-147
+let s:gb.light4           = ['#a89984', 246]     " 168-153-132
+let s:gb.light4_256       = ['#a89984', 246]     " 168-153-132
 
 let s:gb.bright_red     = ['#fb4934', 167]     " 251-73-52
 let s:gb.bright_green   = ['#b8bb26', 142]     " 184-187-38
@@ -180,7 +187,6 @@ if s:is_dark
   let s:bg3  = s:gb.dark3
   let s:bg4  = s:gb.dark4
 
-  let s:gray = s:gb.gray_245
 
   let s:fg0 = s:gb.light0
   let s:fg1 = s:gb.light1
@@ -190,13 +196,31 @@ if s:is_dark
 
   let s:fg4_256 = s:gb.light4_256
 
-  let s:red    = s:gb.bright_red
-  let s:green  = s:gb.bright_green
-  let s:yellow = s:gb.bright_yellow
-  let s:blue   = s:gb.bright_blue
-  let s:purple = s:gb.bright_purple
-  let s:aqua   = s:gb.bright_aqua
-  let s:orange = s:gb.bright_orange
+  " Orinigal gruvbox default
+  if g:gruvbox_dark_fg_colors == 'bright'
+    let s:red    = s:gb.bright_red
+    let s:green  = s:gb.bright_green
+    let s:yellow = s:gb.bright_yellow
+    let s:blue   = s:gb.bright_blue
+    let s:purple = s:gb.bright_purple
+    let s:aqua   = s:gb.bright_aqua
+    let s:orange = s:gb.bright_orange
+    let s:fg_global = s:gb.light1
+    let s:gray = s:gb.gray_245
+  elseif g:gruvbox_dark_fg_colors == 'neutral'
+    let s:red    = s:gb.neutral_red
+    let s:green  = s:gb.neutral_green
+    let s:yellow = s:gb.neutral_yellow
+    let s:blue   = s:gb.neutral_blue
+    let s:purple = s:gb.neutral_purple
+    let s:aqua   = s:gb.neutral_aqua
+    let s:orange = s:gb.neutral_orange
+    let s:fg_global = s:gb.light1_neutral
+    let s:gray = s:gb.gray_243
+  else
+    throw 'unknown "g:gruvbox_dark_fg_colors" setting: ' .
+      \ g:gruvbox_dark_fg_colors
+  endif
 else
   let s:bg0  = s:gb.light0
   if g:gruvbox_contrast_light == 'soft'
@@ -462,7 +486,7 @@ call s:HL('GruvboxOrangeSign', s:orange, s:sign_column, s:invert_signs)
 " General UI: {{{
 
 " Normal text
-call s:HL('Normal', s:fg1, s:bg0)
+call s:HL('Normal', s:fg_global, s:bg0)
 
 " Correct background (see issue #7):
 " --- Problem with changing between dark and light on 256 color terminal
