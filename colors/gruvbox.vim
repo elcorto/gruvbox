@@ -1351,35 +1351,35 @@ hi! link scalaInterpolation GruvboxAqua
 " }}}
 " Markdown: {{{
 
-call s:HL('markdownItalic', s:fg3, s:none, s:italic)
-
-hi! link markdownH1 GruvboxGreenBold
-hi! link markdownH2 GruvboxGreenBold
-hi! link markdownH3 GruvboxYellowBold
-hi! link markdownH4 GruvboxYellowBold
-hi! link markdownH5 GruvboxYellow
-hi! link markdownH6 GruvboxYellow
-
-hi! link markdownCode GruvboxAqua
-hi! link markdownCodeBlock GruvboxAqua
-hi! link markdownCodeDelimiter GruvboxAqua
-
-hi! link markdownBlockquote GruvboxGray
-hi! link markdownListMarker GruvboxGray
-hi! link markdownOrderedListMarker GruvboxGray
-hi! link markdownRule GruvboxGray
-hi! link markdownHeadingRule GruvboxGray
-
-hi! link markdownUrlDelimiter GruvboxFg3
-hi! link markdownLinkDelimiter GruvboxFg3
-hi! link markdownLinkTextDelimiter GruvboxFg3
-
-hi! link markdownHeadingDelimiter GruvboxOrange
-hi! link markdownUrl GruvboxPurple
-hi! link markdownUrlTitleDelimiter GruvboxGreen
-
-call s:HL('markdownLinkText', s:gray, s:none, s:underline)
-hi! link markdownIdDeclaration markdownLinkText
+""call s:HL('markdownItalic', s:fg3, s:none, s:italic)
+""
+""hi! link markdownH1 GruvboxGreenBold
+""hi! link markdownH2 GruvboxGreenBold
+""hi! link markdownH3 GruvboxYellowBold
+""hi! link markdownH4 GruvboxYellowBold
+""hi! link markdownH5 GruvboxYellow
+""hi! link markdownH6 GruvboxYellow
+""
+""hi! link markdownCode GruvboxAqua
+""hi! link markdownCodeBlock GruvboxAqua
+""hi! link markdownCodeDelimiter GruvboxAqua
+""
+""hi! link markdownBlockquote GruvboxGray
+""hi! link markdownListMarker GruvboxGray
+""hi! link markdownOrderedListMarker GruvboxGray
+""hi! link markdownRule GruvboxGray
+""hi! link markdownHeadingRule GruvboxGray
+""
+""hi! link markdownUrlDelimiter GruvboxFg3
+""hi! link markdownLinkDelimiter GruvboxFg3
+""hi! link markdownLinkTextDelimiter GruvboxFg3
+""
+""hi! link markdownHeadingDelimiter GruvboxOrange
+""hi! link markdownUrl GruvboxPurple
+""hi! link markdownUrlTitleDelimiter GruvboxGreen
+""
+""call s:HL('markdownLinkText', s:gray, s:none, s:underline)
+""hi! link markdownIdDeclaration markdownLinkText
 
 " }}}
 " Haskell: {{{
