@@ -251,6 +251,8 @@ else
   let s:purple = s:gb.faded_purple
   let s:aqua   = s:gb.faded_aqua
   let s:orange = s:gb.faded_orange
+
+  let s:fg_global = s:gb.dark0_hard
 endif
 
 " reset to 16 colors fallback
