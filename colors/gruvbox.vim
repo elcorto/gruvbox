@@ -295,7 +295,8 @@ else
   let s:gray = s:gb.gray_244
 
   let s:fg0 = s:gb.dark0
-  let s:fg1 = s:gb.dark1
+  ""let s:fg1 = s:gb.dark1     " gruvbox default
+  let s:fg1 = s:gb.dark0_hard  " ours
   let s:fg2 = s:gb.dark2
   let s:fg3 = s:gb.dark3
   let s:fg4 = s:gb.dark4
