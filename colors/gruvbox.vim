@@ -1803,73 +1803,75 @@ hi! link mailSignature Comment
 " }}}
 " Markdown: {{{
 
-call s:HL('markdownItalic', s:fg3, s:none, s:italic)
-call s:HL('markdownBold', s:fg3, s:none, s:bold)
-call s:HL('markdownBoldItalic', s:fg3, s:none, s:bold . s:italic)
+if g:gruvbox_hl_markdown == 1
+  call s:HL('markdownItalic', s:fg3, s:none, s:italic)
+  call s:HL('markdownBold', s:fg3, s:none, s:bold)
+  call s:HL('markdownBoldItalic', s:fg3, s:none, s:bold . s:italic)
 
-if g:gruvbox_legacy_language_groups
-  hi! link markdownH1 GruvboxGreenBold
-  hi! link markdownH2 GruvboxGreenBold
-  hi! link markdownH3 GruvboxYellowBold
-  hi! link markdownH4 GruvboxYellowBold
-  hi! link markdownH5 GruvboxYellow
-  hi! link markdownH6 GruvboxYellow
+  if g:gruvbox_legacy_language_groups
+    hi! link markdownH1 GruvboxGreenBold
+    hi! link markdownH2 GruvboxGreenBold
+    hi! link markdownH3 GruvboxYellowBold
+    hi! link markdownH4 GruvboxYellowBold
+    hi! link markdownH5 GruvboxYellow
+    hi! link markdownH6 GruvboxYellow
 
-  hi! link markdownCode GruvboxAqua
-  hi! link markdownCodeBlock GruvboxAqua
-  hi! link markdownCodeDelimiter GruvboxAqua
+    hi! link markdownCode GruvboxAqua
+    hi! link markdownCodeBlock GruvboxAqua
+    hi! link markdownCodeDelimiter GruvboxAqua
 
-  hi! link markdownBlockquote GruvboxGray
-  hi! link markdownListMarker GruvboxGray
-  hi! link markdownOrderedListMarker GruvboxGray
-  hi! link markdownRule GruvboxGray
-  hi! link markdownHeadingRule GruvboxGray
+    hi! link markdownBlockquote GruvboxGray
+    hi! link markdownListMarker GruvboxGray
+    hi! link markdownOrderedListMarker GruvboxGray
+    hi! link markdownRule GruvboxGray
+    hi! link markdownHeadingRule GruvboxGray
 
-  hi! link markdownUrlDelimiter GruvboxFg3
-  hi! link markdownLinkDelimiter GruvboxFg3
-  hi! link markdownLinkTextDelimiter GruvboxFg3
+    hi! link markdownUrlDelimiter GruvboxFg3
+    hi! link markdownLinkDelimiter GruvboxFg3
+    hi! link markdownLinkTextDelimiter GruvboxFg3
 
-  hi! link markdownHeadingDelimiter GruvboxOrange
-  hi! link markdownUrl GruvboxPurple
-  hi! link markdownUrlTitleDelimiter GruvboxGreen
+    hi! link markdownHeadingDelimiter GruvboxOrange
+    hi! link markdownUrl GruvboxPurple
+    hi! link markdownUrlTitleDelimiter GruvboxGreen
 
-  call s:HL('markdownLinkText', s:gray, s:none, s:underline)
-  hi! link markdownIdDeclaration markdownLinkText
-else
-  hi! link markdownH1 H1
-  hi! link markdownH2 H2
-  hi! link markdownH3 H3
-  hi! link markdownH4 H4
-  hi! link markdownH5 H5
-  hi! link markdownH6 H6
-  hi! link markdownHeadingDelimiter GruvboxGreen
+    call s:HL('markdownLinkText', s:gray, s:none, s:underline)
+    hi! link markdownIdDeclaration markdownLinkText
+  else
+    hi! link markdownH1 H1
+    hi! link markdownH2 H2
+    hi! link markdownH3 H3
+    hi! link markdownH4 H4
+    hi! link markdownH5 H5
+    hi! link markdownH6 H6
+    hi! link markdownHeadingDelimiter GruvboxGreen
 
-  hi! link markdownCode CodeBlock
-  hi! link markdownCodeBlock CodeBlock
-  hi! link markdownCodeDelimiter Punctuation
+    hi! link markdownCode CodeBlock
+    hi! link markdownCodeBlock CodeBlock
+    hi! link markdownCodeDelimiter Punctuation
 
-  hi! link markdownBlockquote Quote
-  hi! link markdownListMarker Punctuation
-  hi! link markdownOrderedListMarker Punctuation
-  hi! link markdownRule Punctuation
-  hi! link markdownHeadingRule Punctuation
+    hi! link markdownBlockquote Quote
+    hi! link markdownListMarker Punctuation
+    hi! link markdownOrderedListMarker Punctuation
+    hi! link markdownRule Punctuation
+    hi! link markdownHeadingRule Punctuation
 
-  hi! link markdownUrlDelimiter Punctuation
-  hi! link markdownLinkDelimiter Punctuation
-  hi! link markdownLinkTextDelimiter Punctuation
+    hi! link markdownUrlDelimiter Punctuation
+    hi! link markdownLinkDelimiter Punctuation
+    hi! link markdownLinkTextDelimiter Punctuation
 
-  hi! link markdownUrl Link
-  hi! link markdownUrlTitleDelimiter Punctuation
+    hi! link markdownUrl Link
+    hi! link markdownUrlTitleDelimiter Punctuation
 
-  hi! link markdownLinkText Identifier
-  hi! link markdownIdDeclaration Identifier
+    hi! link markdownLinkText Identifier
+    hi! link markdownIdDeclaration Identifier
 
-  if g:gruvbox_treesitter
-    hi link @text.title.1.marker.markdown Special
-    hi link @text.title.2.marker.markdown Special
-    hi link @text.title.3.marker.markdown Special
-    hi link @text.title.4.marker.markdown Special
-    hi link @text.title.5.marker.markdown Special
+    if g:gruvbox_treesitter
+      hi link @text.title.1.marker.markdown Special
+      hi link @text.title.2.marker.markdown Special
+      hi link @text.title.3.marker.markdown Special
+      hi link @text.title.4.marker.markdown Special
+      hi link @text.title.5.marker.markdown Special
+    endif
   endif
 endif
 
