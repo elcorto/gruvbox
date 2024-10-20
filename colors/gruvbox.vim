@@ -243,8 +243,6 @@ if s:is_dark
   let s:bg3 = s:gb.dark3
   let s:bg4 = s:gb.dark4
 
-  let s:gray = s:gb.gray_245
-
   let s:fg0 = s:gb.light0
   let s:fg1 = s:gb.light1
   let s:fg2 = s:gb.light2
@@ -253,13 +251,34 @@ if s:is_dark
 
   let s:fg4_256 = s:gb.light4_256
 
-  let s:red    = s:gb.bright_red
-  let s:green  = s:gb.bright_green
-  let s:yellow = s:gb.bright_yellow
-  let s:blue   = s:gb.bright_blue
-  let s:purple = s:gb.bright_purple
-  let s:aqua   = s:gb.bright_aqua
-  let s:orange = s:gb.bright_orange
+  " Original gruvbox default
+  if g:gruvbox_dark_fg_colors == 'bright'
+    " colors
+    let s:red    = s:gb.bright_red
+    let s:green  = s:gb.bright_green
+    let s:yellow = s:gb.bright_yellow
+    let s:blue   = s:gb.bright_blue
+    let s:purple = s:gb.bright_purple
+    let s:aqua   = s:gb.bright_aqua
+    let s:orange = s:gb.bright_orange
+    " other
+    let s:gray = s:gb.gray_245
+  elseif g:gruvbox_dark_fg_colors == 'neutral'
+    " colors
+    let s:red    = s:gb.neutral_red
+    let s:green  = s:gb.neutral_green
+    let s:yellow = s:gb.neutral_yellow
+    let s:blue   = s:gb.neutral_blue
+    let s:purple = s:gb.neutral_purple
+    let s:aqua   = s:gb.neutral_aqua
+    let s:orange = s:gb.neutral_orange
+    " other
+    let s:fg1 = s:gb.light1_neutral
+    let s:gray = s:gb.gray_243
+  else
+    throw 'unknown "g:gruvbox_dark_fg_colors" setting: ' .
+      \ g:gruvbox_dark_fg_colors
+  endif
 else
   let s:bg0 = s:gb.light0
   if g:gruvbox_contrast_light ==# 'soft'
