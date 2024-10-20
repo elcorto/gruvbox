@@ -88,6 +88,14 @@ endif
 
 let s:is_dark=(&background ==# 'dark')
 
+if !exists('g:gruvbox_dark_fg_colors')
+  let g:gruvbox_dark_fg_colors='bright'
+endif
+
+if !exists('g:gruvbox_hl_markdown')
+  let g:gruvbox_hl_markdown=1
+endif
+
 " }}}
 " Palette Utility Functions: {{{
 
